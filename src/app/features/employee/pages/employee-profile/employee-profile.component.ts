@@ -1,5 +1,6 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../../../../shared/models/employee.model';
 
 @Component({
   selector: 'app-employee-profile',
@@ -7,14 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './employee-profile.component.html',
   styleUrl: './employee-profile.component.css',
 })
-export class EmployeeProfileComponent implements OnInit {
-  private route = inject(ActivatedRoute);
+export class EmployeeProfileComponent {
+  employee = input.required<Employee>();
 
-  employeeId = signal(0);
+  // private route = inject(ActivatedRoute);
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.employeeId.set(params['id']);
-    });
-  }
+  // employeeId = signal(0);
+
+  // ngOnInit() {
+  //   this.route.params.subscribe((params) => {
+  //     this.employeeId.set(params['id']);
+  //   });
+  // }
 }

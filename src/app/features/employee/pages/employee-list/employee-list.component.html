@@ -1,2 +1,22 @@
-<p>employee-list works!</p>
-<button (click)="goToProfile()">Profile</button>
+<h3>Employees ({{ employees().length }})</h3>
+
+<div class="cards">
+    @if (employees().length == 0) {
+    <p>No employees found.</p>
+    }@else {
+    @for (employee of employees(); track employee.id) {
+    <app-employee-card [employee]="employee" (selected)="employeeSelected($event)"></app-employee-card>
+    }
+    }
+</div>
+
+<div class="profile-section">
+    <app-employee-profile [employee]="selectedEmployee"></app-employee-profile>
+</div>
+
+<!-- <br>
+
+<p>name: {{employeeName()}}</p>
+<label for="employeeName"></label>
+<input type="text" id="employeeName" name="employeeName" [value]="employeeName()"
+    (input)="setValue($event.target.value)"> -->

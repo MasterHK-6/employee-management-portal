@@ -2,9 +2,16 @@
     <nav>
         <div class="header">
             <h3>Employee Management Portal</h3>
+
             <ul>
-                <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Dashboard</a></li>
+                <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Dashboard</a>
+                </li>
                 <li><a routerLinkActive="active" routerLink="/employees">Employees</a></li>
+                @if (isLoggedIn()) {
+                <li>Hello, {{userName()}} &nbsp; <button (click)="logout()">Logout</button></li>
+                }@else{
+                <li><button (click)="login()">Login</button></li>
+                }
             </ul>
         </div>
     </nav>

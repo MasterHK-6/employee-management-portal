@@ -1,1 +1,15 @@
-<p>Employee ID: {{ employeeId() }}</p>
+@if (employee()) {
+
+<h2>Employee Profile</h2>
+
+<h3>
+    {{ employee().name }}
+</h3>
+
+<p>Email : {{ employee().email }}</p>
+
+<p>Department : {{ employee().department }}</p>
+
+<p>Salary : {{ employee().salary }}</p>
+
+}
